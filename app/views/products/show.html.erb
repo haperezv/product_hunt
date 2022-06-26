@@ -1,0 +1,29 @@
+<section class="relative py-10 overflow-x-hidden">
+  <div class="container  mx-auto">
+    <div class="relative flex flex-wrap items-center -mx-4">
+      <div class="relative w-full lg:w-1/2 px-4 pb-12 lg:pb-0">
+        
+          <h2 class="mb-6 lg:mb-10 text-4xl font-semibold font-heading"> <%= @product.name%> </h2>
+          <p class="mb-6 lg:mb-10 text-xl text-gray-500">
+               <%= @product.description%>
+          </p>
+          <div class="mb-10 border rounded-lg">
+
+          </div>
+            <%=link_to 'Editar', edit_product_path(@product),class:"cursor-pointer inline-block  py-4 px-8 leading-none text-white bg-blue-600 hover:bg-blue-700 font-semibold rounded shadow" %>             
+            <%=link_to 'Eliminar', product_path(@product), 
+                data: {turbo_method: :delete,
+                          turbo_confirm: 'Estas seguro eliminar el producto?'},
+                class:"cursor-pointer inline-block  py-4 px-8 leading-none text-white bg-red-600 hover:bg-red-700 font-semibold rounded shadow"
+              %>
+        </div>
+        <div class="w-full lg:w-1/2 px-4">
+            <% if @product.image.present?%>
+                   <%= image_tag @product.image, class:"w-full h-112 mx-auto mb-6 md:mb-0 rounded-xl object-cover" %>
+            <%end%>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+

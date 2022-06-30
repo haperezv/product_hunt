@@ -1,13 +1,18 @@
 # == Schema Information
 #
-# Table name: categories
+# Table name: comments
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  content    :string
+#  product_id :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class Category < ApplicationRecord
 
-    has_many :product_categories
-end
+one:
+  content: MyString
+  product: one
+
+two:
+  content: MyString
+  product: two

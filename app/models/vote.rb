@@ -1,13 +1,12 @@
 # == Schema Information
 #
-# Table name: categories
+# Table name: votes
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  votable_id :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class Category < ApplicationRecord
-
-    has_many :product_categories
+class Vote < ApplicationRecord
+  belongs_to :votable, polymorphic: true
 end

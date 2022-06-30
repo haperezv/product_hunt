@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 #  post 'products', to: 'products#create'
   resources :products do 
       get 'search', on: :collection # procucts/search --> products#search
+      resources :comments, only: [:create] do
+          resources :votes, only: [:create]
+      end
+    resources :votes, only: [:create]
   end
   root "main#welcome"
 end

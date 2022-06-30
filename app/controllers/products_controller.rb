@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   
   def index
     current_page = params[:page] ||= 1
-    @products = Product.where(visible: true).order('id DESC').paginate(page:current_page, per_page: 10)
+    @products = Product.populars.visible.paginate(page:current_page, per_page: 10)
   end
 
   def new
@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
   end
   
   def  product_params
-    params.require(:product).permit(:name, :description,  :visible, :image)
+    params.require(:product).permit(:name, :description,  :visible, :image, category_ids: [])
   end
 
 end

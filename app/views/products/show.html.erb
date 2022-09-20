@@ -12,7 +12,7 @@
                 <p class ="font-semibold font-heading "><%=category.name%></p>
               <%end%>
 
-          </div>
+          </div> 
             <%=link_to 'Editar', edit_product_path(@product),class:"cursor-pointer inline-block  py-4 px-8 leading-none text-white bg-blue-600 hover:bg-blue-700 font-semibold rounded shadow" %>             
             <%=link_to 'Eliminar', product_path(@product), 
                 data: {turbo_method: :delete,
